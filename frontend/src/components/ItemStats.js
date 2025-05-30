@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function ItemStats() {
+function ItemStats({ refreshTrigger }) {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function ItemStats() {
       }
     };
     fetchStats();
-  }, []);
+  }, [refreshTrigger]); // Se ejecuta cada vez que cambia refreshTrigger
 
   if (!stats) return <p>Cargando estadísticas...</p>;
 

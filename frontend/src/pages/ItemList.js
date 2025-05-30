@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ItemForm from '../components/ItemForm';
 
-function ItemList() {
-  const [items, setItems] = useState([]);
+function ItemList({ items, setItems }) {
   const [editingItem, setEditingItem] = useState(null);
 
   const fetchItems = async () => {
@@ -31,7 +30,7 @@ function ItemList() {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, []); // Solo al montar
 
   return (
     <div>
